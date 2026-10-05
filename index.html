@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="lt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mobile Device Simulator</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="simulator">
+      <div class="segment" aria-label="Device selector">
+        <button class="device-btn active" data-device="android">Android</button>
+        <button class="device-btn" data-device="iphone">iPhone</button>
+      </div>
+
+      <div class="device android" id="device">
+        <div class="notch"></div>
+
+        <div class="screen">
+          <div class="status-bar">
+            <span class="time">9:41</span>
+            <div class="status-icons" aria-label="Status icons">
+              <span>◔</span>
+              <span>📶</span>
+              <span>🔋</span>
+            </div>
+          </div>
+
+          <div class="screen-layer">
+            <div class="lockscreen" id="lockscreen">
+              <div class="lock-header">
+                <span>9:41</span>
+                <span>📶</span>
+              </div>
+
+              <div class="clock">
+                <div class="time">9:41</div>
+                <div class="date">Monday, April 8</div>
+              </div>
+
+              <div class="lock-footer">
+                <button class="camera-button" type="button" aria-label="Open camera">📷</button>
+                <button class="unlock-button" id="unlockBtn" type="button">Unlock</button>
+              </div>
+            </div>
+
+            <div class="homescreen hidden" id="homescreen">
+              <div class="widget-strip">
+                <div class="widget">
+                  <div class="label">Weather</div>
+                  <div class="big">24°</div>
+                  <div class="small">Cloudy</div>
+                </div>
+
+                <div class="widget">
+                  <div class="label">Steps</div>
+                  <div class="big steps">8.4k</div>
+                  <div class="small">Goal 10k</div>
+                </div>
+              </div>
+
+              <div class="quick-row">
+                <button class="quick-item active" type="button" data-quick="wifi">📶<span>Wi‑Fi</span></button>
+                <button class="quick-item" type="button" data-quick="sound">🔊<span>Sound</span></button>
+                <button class="quick-item" type="button" data-quick="sync">📱<span>Sync</span></button>
+                <button class="quick-item" type="button" data-quick="power">🔋<span>Power</span></button>
+              </div>
+
+              <div class="notification-card" id="notificationCard" type="button">
+                <div class="notification-dot">3</div>
+                <div class="notification-meta">
+                  <strong>Messages</strong>
+                  <span>2 new notifications</span>
+                </div>
+              </div>
+
+              <div class="app-grid">
+                <button class="app-icon" data-app="settings" type="button">
+                  <span class="glyph">⚙️</span>
+                  <span class="name">Settings</span>
+                </button>
+
+                <button class="app-icon" data-app="messages" type="button">
+                  <span class="glyph">💬</span>
+                  <span class="name">Messages</span>
+                </button>
+
+                <button class="app-icon" data-app="camera" type="button">
+                  <span class="glyph">📷</span>
+                  <span class="name">Camera</span>
+                </button>
+
+                <button class="app-icon" data-app="maps" type="button">
+                  <span class="glyph">🗺️</span>
+                  <span class="name">Maps</span>
+                </button>
+
+                <button class="app-icon" data-app="weather" type="button">
+                  <span class="glyph">⛅</span>
+                  <span class="name">Weather</span>
+                </button>
+
+                <button class="app-icon" data-app="appstore" type="button">
+                  <span class="glyph">🛍️</span>
+                  <span class="name">Store</span>
+                </button>
+
+                <button class="app-icon" data-app="calendar" type="button">
+                  <span class="glyph">📅</span>
+                  <span class="name">Calendar</span>
+                </button>
+
+                <button class="app-icon" data-app="music" type="button">
+                  <span class="glyph">🎵</span>
+                  <span class="name">Music</span>
+                </button>
+              </div>
+
+              <div class="dock">
+                <button type="button" aria-label="Phone">☎️</button>
+                <button type="button" aria-label="Messages">💬</button>
+                <button type="button" aria-label="Maps">🧭</button>
+                <button type="button" aria-label="Camera">📷</button>
+              </div>
+            </div>
+
+            <div class="panel hidden" id="panel">
+              <div class="panel-body">
+                <div class="panel-top">
+                  <button class="close-btn" id="closePanel" type="button">✕</button>
+                  <span id="panelTitle">Settings</span>
+                </div>
+
+                <div class="panel-content">
+                  <div class="app-card active" data-name="settings">
+                    <div class="setting-list">
+                      <div class="setting-row">
+                        <span>Wi‑Fi</span>
+                        <button class="toggle on" type="button" aria-label="Toggle Wi‑Fi"></button>
+                      </div>
+                      <div class="setting-row">
+                        <span>Bluetooth</span>
+                        <button class="toggle on" type="button" aria-label="Toggle Bluetooth"></button>
+                      </div>
+                      <div class="setting-row">
+                        <span>Airplane</span>
+                        <button class="toggle" type="button" aria-label="Toggle Airplane mode"></button>
+                      </div>
+                      <div class="setting-row">
+                        <span>Do Not Disturb</span>
+                        <button class="toggle on" type="button" aria-label="Toggle Do Not Disturb"></button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="app-card" data-name="messages">
+                    <div class="message-list">
+                      <div class="message-item">
+                        <strong>Anna</strong>
+                        <div>“Can you review the prototype before 5 PM?”</div>
+                      </div>
+                      <div class="message-item">
+                        <strong>Team</strong>
+                        <div>“3 tasks are ready for testing.”</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="app-card" data-name="camera">
+                    <div class="camera-view">
+                      <div class="camera-frame">
+                        <div class="camera-inner"></div>
+                        <div class="camera-ring"></div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="app-card" data-name="maps">
+                    <div class="map-view">
+                      <div class="map">
+                        <div class="pin"></div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="app-card" data-name="weather">
+                    <div class="weather-view">
+                      <div class="weather-temp">26°</div>
+                      <div class="weather-text">Sunny</div>
+                      <div>Feels like 28°</div>
+                    </div>
+                  </div>
+
+                  <div class="app-card" data-name="appstore">
+                    <div class="store-view">
+                      <div class="store-item">UI Kit Pro</div>
+                      <div class="store-item">AI Assistant</div>
+                      <div class="store-item">Motion Tools</div>
+                    </div>
+                  </div>
+
+                  <div class="app-card" data-name="calendar">
+                    <div class="message-list">
+                      <div class="message-item">
+                        <strong>Today</strong>
+                        <div>Design review at 15:00</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="app-card" data-name="music">
+                    <div class="weather-view">
+                      <div class="weather-temp" style="font-size: 44px;">Now Playing</div>
+                      <div class="weather-text">Night Drive</div>
+                      <div>Artist: Nova Echo</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="notification-panel hidden" id="notifications">
+              <div class="notification-box">
+                <div class="head">
+                  <span>Notifications</span>
+                  <span>Clear</span>
+                </div>
+
+                <div class="item">
+                  <div>
+                    <strong>Delivery</strong>
+                    <small>Your package has arrived</small>
+                  </div>
+                  <span>2m</span>
+                </div>
+
+                <div class="item">
+                  <div>
+                    <strong>Meeting</strong>
+                    <small>Team sync starts in 15 min</small>
+                  </div>
+                  <span>12m</span>
+                </div>
+
+                <div class="item">
+                  <div>
+                    <strong>Weather</strong>
+                    <small>Rain expected this evening</small>
+                  </div>
+                  <span>1h</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="control-center hidden" id="controlCenter">
+              <div class="cc-box">
+                <div class="cc-grid">
+                  <div class="cc-item"><span class="icon">📶</span><br>Wi‑Fi</div>
+                  <div class="cc-item"><span class="icon">🔊</span><br>Sound</div>
+                  <div class="cc-item"><span class="icon">📱</span><br>AirDrop</div>
+                  <div class="cc-item"><span class="icon">🔋</span><br>Battery</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
